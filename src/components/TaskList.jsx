@@ -3,6 +3,7 @@ import { TaskItem } from "./TaskItem";
 
 export function TaskList({
   tasks,
+  searchQuery,
   editingTaskId,
   editTitle,
   setEditTitle,
@@ -18,10 +19,13 @@ export function TaskList({
     return (
       <div className="empty-state">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="40" height="40">
-          <rect x="3" y="3" width="18" height="18" rx="3" />
-          <path d="M9 12l2 2 4-4" />
+          {searchQuery ? (
+            <><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></>
+          ) : (
+            <><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12l2 2 4-4"/></>
+          )}
         </svg>
-        <p>No tasks here</p>
+        <p>{searchQuery ? `No tasks matching "${searchQuery}"` : "No tasks here"}</p>
       </div>
     );
   }
