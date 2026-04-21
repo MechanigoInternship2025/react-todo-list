@@ -1,5 +1,104 @@
-.todo-item {
- display: flex;
- justify-content: space-between;
- margin-bottom: 8px;
+/* App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: linear-gradient(145deg, #f5f7fc 0%, #eef2f6 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.app-container {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  background: white;
+  border-radius: 2rem;
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+  padding: 2rem 1.8rem 2.2rem;
+  transition: all 0.2s ease;
+}
+
+.app-container h1 {
+  font-size: 1.9rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #1e2b3c, #2c4c6e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: -0.3px;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+}
+
+/* shared task & form styles */
+.task-form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 0.85rem 1.2rem;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 60px;
+  outline: none;
+  transition: 0.2s;
+  background: #fefefe;
+  color: #333;
+}
+
+.task-form input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+}
+
+.task-form button {
+  background: #3b82f6;
+  border: none;
+  padding: 0 1.6rem;
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.task-form button:hover {
+  background: #2563eb;
+  transform: scale(0.97);
+}
+
+.empty-state {
+  text-align: center;
+  color: #7c8b9f;
+  padding: 2.5rem 1rem;
+  background: #f8fafc;
+  border-radius: 1.5rem;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.task-stats {
+  font-size: 0.8rem;
+  color: #5b6e8c;
+  margin-top: 1rem;
+  text-align: right;
+  border-top: 1px solid #eef2f8;
+  padding-top: 1rem;
 }
