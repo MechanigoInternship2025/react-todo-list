@@ -9,6 +9,7 @@ export function AddTaskForm({
   description,
   setDescription,
   onAdd,
+  disabled,
 }) {
   const containerRef = useRef(null);
 
@@ -36,19 +37,6 @@ export function AddTaskForm({
       className={`add-task-bar ${isExpanded ? "expanded" : ""}`}
       ref={containerRef}
     >
-      <svg
-        className="addbar-icon"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        width="15"
-        height="15"
-      >
-        <line x1="12" y1="5" x2="12" y2="19" />
-        <line x1="5" y1="12" x2="19" y2="12" />
-      </svg>
-
       <div className="addbar-inputs">
         <input
           type="text"
@@ -58,6 +46,7 @@ export function AddTaskForm({
           onFocus={onExpand}
           onKeyDown={handleKeyDown}
           className="addbar-title-input"
+          disabled={disabled}
         />
         {isExpanded && (
           <input
@@ -71,15 +60,19 @@ export function AddTaskForm({
         )}
       </div>
 
-      {isExpanded && (
-        <button
-          className="addbar-submit-btn"
-          onClick={onAdd}
-          disabled={!title.trim()}
-        >
-          Add Task
-        </button>
-      )}
+      {/* Circle + button — always on the right, submits the task */}
+      <button
+        className="add-circle-btn"
+        onClick={onAdd}
+        disabled={!title.trim() || disabled}
+        aria-label="Add task"
+        type="button"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" width="14" height="14">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+      </button>
     </div>
   );
 }
